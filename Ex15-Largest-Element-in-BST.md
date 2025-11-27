@@ -1,83 +1,65 @@
-# Ex15 Largest Element in BST
-## DATE:
+# Ex15 Value Existence Check in a TreeMap
+
 ## AIM:
-To Write a c program to find the largest value in a Binary Search Tree.
+To write a Java program that checks whether a given value exists in a TreeMap.
 
 ## Algorithm
-1. Start the program.
-2. Initialize a pointer to the root of the BST.
-3. Move to the right child in a loop while it exists.
-4. Stop when the right child is NULL.
-5. Return the current node’s value as the largest.
-6. End the program.  
+1.Read all key–value pairs and store them inside a TreeMap.
+
+2.Take the value to be searched as input.
+
+3.Use containsValue() to check if the TreeMap has that value.
+
+4.If it exists, print a success message.
+
+5.Otherwise, print that the value does not exist.  
 
 ## Program:
 ```
 /*
-Program to find and display the priority of the operator in the given Postfix expression
+Program to checks whether a given value exists in a TreeMap.
+Developed by: LEVAKU LAKSHMI MOUNIKA
+RegisterNumber: 212223100026
+import java.util.*;
+
+public class TreeMapValueExistenceCheck {
+
+    public static void checkValue(TreeMap<Integer, String> map, String searchValue) {
+        if(map.containsValue(searchValue)){
+            System.out.println("Value \""+searchValue + "\" exists in the TreeMap.");
+        }
+        else{
+             System.out.println("Value \""+searchValue + "\" does not exist in the TreeMap.");
+            
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        TreeMap<Integer, String> map = new TreeMap<>();
+
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            int key = sc.nextInt();
+            sc.nextLine();  
+            String value = sc.nextLine();
+            map.put(key, value);
+        }
+        String searchValue = sc.nextLine();
+
+        checkValue(map, searchValue);
+        sc.close();
+    }
+}
 
 */
-#include <stdio.h> 
-#include <stdlib.h> 
-struct node 
-{ 
-   int info; 
-   struct node *left, *right; 
-}; 
-struct node *createnode(int key) 
-{ 
-   struct node *newnode = (struct node*)malloc(sizeof(struct node)); 
-   newnode->info = key; 
-   newnode->left = NULL; 
-   newnode->right = NULL; 
-   return(newnode); 
-} 
-void inorder(struct node *root) 
-{ 
-   if(root != NULL) 
-   { 
-       inorder(root->left); 
-       printf(" %d ",root->info); 
-       inorder(root->right); 
-   } 
-} 
-void largest(struct node *root) 
-{ 
-   while (root != NULL && root->right != NULL) 
-   { 
-       root = root->right; 
-   } 
-   printf("\nLargest value is %d", root->info); 
-} 
-EX.NO : 3(E) 
-LARGEST ELEMENT IN BST 
-DATE : 
-/* 
- * Main Function 
- */ 
-int main() 
-{ 
-  /* Creating first Tree. */ 
-   struct node *newnode = createnode(25); 
-   newnode->left = createnode(17); 
-   newnode->right = createnode(35); 
-   newnode->left->left = createnode(13); 
-   newnode->left->right = createnode(19); 
-   newnode->right->left = createnode(27); 
-   newnode->right->right = createnode(55); 
-    
-   printf("Inorder traversal of tree 1 :"); 
-   inorder(newnode); 
-   largest(newnode); 
-    
-return 0; 
-} 
 ```
 
 ## Output:
+<img width="1148" height="733" alt="image" src="https://github.com/user-attachments/assets/f41153c5-3f58-4684-8243-7460dd2a6016" />
 
-![image](https://github.com/user-attachments/assets/b8b4133d-a72d-46bc-9bfe-3c02553dcf5d)
 
 
 ## Result:
-Thus, the C program to find the largest value in a Binary Search Tree is implemented successfully.
+Thus, the program successfully checks whether a specified value exists in a TreeMap using the containsValue() method.
