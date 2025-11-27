@@ -1,46 +1,68 @@
-# Ex14 Heap Tree
-## DATE:
+# Ex14 Tracking the First Unique Number in a Stream using LinkedHashMap
+
 ## AIM:
-To write a C function to delete an element in a Heap Tree.
+To implement a program that tracks the first unique (non-repeating) number in a stream of integers using a LinkedHashMap.
 
 ## Algorithm
-1. Start the program.
-2. Find the index of the element num in the array.
-3. Swap the element to be deleted with the last element in the array.
-4. Decrease the array size (size) by 1.
-5. Start heapifying from the last non-leaf node (index size/2 - 1).
-6. Call heapify() to restore the heap property for each node.
-7. End the program.
+1.Maintain a LinkedHashMap to store each number and its frequency.
+
+2.For every incoming number, update its count in the map.
+
+3.After each update, scan the map in insertion order.
+
+4.The first key having frequency 1 is the current first unique number.
+
+5.If no such key exists, print “No unique number”.  
 
 ## Program:
 ```
 /*
-Program to delete an element in a Heap Tree
+Program to tracks the first unique (non-repeating) number in a stream of integers using a LinkedHashMap.
+Developed by: LEVAKU LAKSHMI MOUNIKA
+RegisterNumber: 212223100026
+import java.util.*;
 
+public class FirstUniqueNumberStream {
+
+    public static void processStream(int n, Scanner sc) {
+        
+    LinkedHashMap<Integer,Integer> hm =new LinkedHashMap<>();
+    for(int i=0;i<n;i++){
+        int a=sc.nextInt();
+        Integer unq=null;
+        hm.put(a,hm.getOrDefault(a,0)+1);
+        for(Integer key:hm.keySet()){
+            if(hm.get(key)==1){
+                unq=key;
+                break;
+            }
+        }
+        if(unq!=null){
+            System.out.println("First unique number: "+unq);
+        }
+        else{
+            System.out.println("No unique number");
+        }
+        
+    }
+    
+    
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        processStream(n, sc);
+        sc.close();
+    }
+}
+  
 */
-void deleteRoot(int array[], int num) 
-{ 
-int i; 
-for(i=0;i<size;i++) 
-{ 
-if(num==array[i]) 
-{ 
-break; 
-} 
-} 
-swap(&array[i],&array[size-1]); 
-size-=1; 
-for(i=size/2-1;i>=0;i--) 
-{ 
-heapify(array,size,i); 
-} 
-} 
 ```
 
 ## Output:
-
-![image](https://github.com/user-attachments/assets/c328ffc1-1769-43c1-8328-9202f77e6676)
+<img width="773" height="537" alt="image" src="https://github.com/user-attachments/assets/ff5a5d01-5ec1-410c-93a8-e1fdd52fd12b" />
 
 
 ## Result:
-Thus, the function to delete an element in a Heap Tree is implemented successfully.
+The program successfully tracks and returns the first unique number at any point in the integer stream using a LinkedHashMap.
