@@ -1,61 +1,59 @@
-# Ex13 Expression Tree
-## DATE:
-## AIM:
-To write a C function to construct an Expression Tree for the given Postfix Expression and display the output in the format of In-order ,Pre-order and Post-order traversal.
+# Ex13 Fill the First 10 Elements of an Array with a Constant using Arrays.fill()
 
+## AIM:
+To write a Java program that fills the first 10 elements of an array with a constant value using the Arrays.fill() method.
 ## Algorithm
-1. Start the program.
-2. Print node data in preorder then traverse left then right
-3. Traverse left in inorder then print node data then traverse right
-4. Traverse left in postorder then traverse right then print node data
-5. Recursive approach is used for all three traversal methods 
-6. Functions handle each tree node using tree->d, tree->l, tree->r
-7. End the program.  
+1.Create a new array of the given size.
+
+
+2.Use Arrays.fill() to assign the same value to all positions.
+
+
+3.This fills every index with the given constant value.
+
+
+4.Return the filled array.
+
+
+5.Print the array elements in the main method.
+
+  
 
 ## Program:
 ```
 /*
-Program to construct an Expression Tree for the given Postfix Expression and display the output in the format of In-order ,Pre-order and Post-order traversal.
+Program to FILL the first 10 elements of an array with a constant value using the Arrays.fill() method.
+Developed by: LEVAKU LAKSHMI MOUNIKA
+RegisterNumber: 212223100026
+import java.util.*;
 
+public class FillArrayUsingArraysFill {
+
+    public static int[] fillArray(int size, int value) {
+       int a[]=new int[size];
+       Arrays.fill(a,value);
+       return a;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int value = sc.nextInt();
+        int[] arr = fillArray(10, value);
+        System.out.println("Array elements:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        sc.close();
+    }
+}
+  
 */
-struct n { 
-char d; 
-struct n *l; 
-struct n *r; 
-};*/ 
-void preOrder(struct n *tree) 
-{ 
-if(tree) 
-{ 
-printf("%c",tree->d); 
-preOrder(tree->l); 
-preOrder(tree->r); 
-} 
-} 
-void inOrder(struct n *tree) 
-{ 
-if(tree) 
-{ 
-inOrder(tree->l); 
-printf("%c",tree->d); 
-inOrder(tree->r); 
-} 
-} 
-void postOrder(struct n *tree) 
-{ 
-if(tree) 
-{ 
-postOrder(tree->l); 
-postOrder(tree->r); 
-printf("%c",tree->d); 
-} 
-} 
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/2bf91a68-60a1-4db7-8657-6f6534878353)
+<img width="836" height="302" alt="image" src="https://github.com/user-attachments/assets/aa85540e-454a-4492-be92-eca8364fc63c" />
 
 
 ## Result:
-Thus, the C program to display the Expression Tree in the format of In-order ,Pre-order and Post-order traversal.
+The program successfully fills the first 10 elements of the array with the constant value 5 using the Arrays.fill() method.
